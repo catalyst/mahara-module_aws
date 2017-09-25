@@ -24,24 +24,19 @@ are quite large, but also because it can cause issues with library namespaces an
 
 Plugins that depend on this library are:
 
-https://github.com/catalyst/moodle-search_elastic
+https://git.catalyst-au.net/elearning/mahara-module_objectfs
 
-https://github.com/catalyst/moodle-tool_s3logs
+## Supported Mahara Versions
 
-https://github.com/catalyst/moodle-tool_objectfs
-
-
-## Supported Moodle Versions
-
-This plugin requires Moodle 2.6+
+This plugin requires Mahara 17.04 and above
 
 ## Installation
 
 You can install this plugin from the plugin directory or get the latest version
-on GitHub.
+on Gitlab.
 
 ```bash
-git clone https://github.com/catalyst/moodle-local_aws local/aws
+git clone git@git.catalyst-au.net:elearning/mahara-module_objectfs.git htdocs/module/aws
 ```
 
 # Crafted by Catalyst IT
@@ -56,9 +51,9 @@ https://www.catalyst-au.net/
 
 # Contributing and Support
 
-Issues, and pull requests using github are welcome and encouraged! 
+Issues, and pull requests using github are welcome and encouraged!
 
-https://github.com/catalyst/moodle-local_aws/issues
+https://git.catalyst-au.net/elearning/mahara-module_objectfs/issues
 
 If you would like commercial support or would like to sponsor additional improvements
 to this plugin please contact us:

@@ -28,6 +28,8 @@ use Psr\Http\Message\RequestInterface;
  * @method \GuzzleHttp\Promise\Promise deleteTargetGroupAsync(array $args = [])
  * @method \Aws\Result deregisterTargets(array $args = [])
  * @method \GuzzleHttp\Promise\Promise deregisterTargetsAsync(array $args = [])
+ * @method \Aws\Result describeAccountLimits(array $args = [])
+ * @method \GuzzleHttp\Promise\Promise describeAccountLimitsAsync(array $args = [])
  * @method \Aws\Result describeListeners(array $args = [])
  * @method \GuzzleHttp\Promise\Promise describeListenersAsync(array $args = [])
  * @method \Aws\Result describeLoadBalancerAttributes(array $args = [])
@@ -60,6 +62,8 @@ use Psr\Http\Message\RequestInterface;
  * @method \GuzzleHttp\Promise\Promise registerTargetsAsync(array $args = [])
  * @method \Aws\Result removeTags(array $args = [])
  * @method \GuzzleHttp\Promise\Promise removeTagsAsync(array $args = [])
+ * @method \Aws\Result setIpAddressType(array $args = [])
+ * @method \GuzzleHttp\Promise\Promise setIpAddressTypeAsync(array $args = [])
  * @method \Aws\Result setRulePriorities(array $args = [])
  * @method \GuzzleHttp\Promise\Promise setRulePrioritiesAsync(array $args = [])
  * @method \Aws\Result setSecurityGroups(array $args = [])
@@ -67,19 +71,4 @@ use Psr\Http\Message\RequestInterface;
  * @method \Aws\Result setSubnets(array $args = [])
  * @method \GuzzleHttp\Promise\Promise setSubnetsAsync(array $args = [])
  */
-class ElasticLoadBalancingV2Client extends AwsClient {
-
-    public function __construct(array $args)
-    {
-        if (!isset($args['signing_name'])) {
-            $args['signing_name'] = 'elasticloadbalancing';
-        }
-        if (!isset($args['endpoint'])) {
-            $scheme = isset($args['scheme'])? $args['scheme'] : 'https';
-            $args['endpoint'] =
-                "{$scheme}://elasticloadbalancing.{$args['region']}.amazonaws.com";
-        }
-
-        parent::__construct($args);
-    }
-}
+class ElasticLoadBalancingV2Client extends AwsClient {}

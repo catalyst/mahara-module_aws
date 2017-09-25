@@ -4,7 +4,8 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/aws/aws-sdk-php.svg?style=flat)](https://packagist.org/packages/aws/aws-sdk-php)
 [![Build Status](https://img.shields.io/travis/aws/aws-sdk-php.svg?style=flat)](https://travis-ci.org/aws/aws-sdk-php)
 [![Apache 2 License](https://img.shields.io/packagist/l/aws/aws-sdk-php.svg?style=flat)](http://aws.amazon.com/apache-2-0/)
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/aws/aws-sdk-php?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Gitter](https://badges.gitter.im/aws/aws-sdk-php.svg)](https://gitter.im/aws/aws-sdk-php?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![codecov](https://codecov.io/gh/aws/aws-sdk-php/branch/master/graph/badge.svg)](https://codecov.io/gh/aws/aws-sdk-php)
 
 The **AWS SDK for PHP** makes it easy for developers to access [Amazon Web
 Services][aws] in their PHP code, and build robust applications and software
@@ -25,6 +26,21 @@ or by downloading a single zip or phar file from our [latest release][latest-rel
 * For Version 2 of the SDK:
   * [User Guide][docs-guide-v2]
   * [API Docs][docs-api-v2]
+
+## Getting Help
+
+Please use these community resources for getting help. We use the GitHub issues for tracking bugs and feature requests and have limited bandwidth to address them.
+
+* Ask a question on [StackOverflow](https://stackoverflow.com/) and tag it with [`aws-php-sdk`](http://stackoverflow.com/questions/tagged/aws-php-sdk)
+* Come join the AWS SDK for PHP [gitter](https://gitter.im/aws/aws-sdk-php)
+* Open a support ticket with [AWS Support](https://console.aws.amazon.com/support/home/)
+* If it turns out that you may have found a bug, please [open an issue](https://github.com/aws/aws-sdk-php/issues/new)
+
+## Opening Issues
+
+If you encounter a bug with `aws-sdk-php` we would like to hear about it. Search the existing issues and try to make sure your problem doesn’t already exist before opening a new issue. It’s helpful if you include the version of `aws-sdk-php`, PHP version and OS you’re using. Please include a stack trace and reduced repro case when appropriate, too.
+
+The GitHub issues are intended for bug reports and feature requests. For help and questions with using `aws-sdk-php` please make use of the resources listed in the Getting Help section. There are limited resources available for handling issues and by keeping the list of open issues lean we can respond in a timely manner.
 
 ## Features
 
@@ -95,7 +111,7 @@ try {
         'Body'   => fopen('/path/to/file', 'r'),
         'ACL'    => 'public-read',
     ]);
-} catch (Aws\Exception\S3Exception $e) {
+} catch (Aws\S3\Exception\S3Exception $e) {
     echo "There was an error uploading the file.\n";
 }
 ```

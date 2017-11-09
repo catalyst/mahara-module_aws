@@ -5,7 +5,7 @@ A mahara plugin containing Amazon's SDK for PHP.
 To use the SDK, simply include the autoloader contained within this plugin.
 
 ```php
-require_once($CFG->dirroot . '/module/aws/sdk/aws-autoloader.php');
+require_once(get_config('docroot') . '/module/aws/sdk/aws-autoloader.php');
 ```
 
 If you are writing a plugin that will use this SDK, it is recommended that you add this to the plugin's version.php:
@@ -18,13 +18,13 @@ $plugin->dependencies = array(
 
 ## Why does this exist? ##
 
-There is a growing collection of various moodle plugins that require these AWS libraries in order to work.
+There is a growing collection of various mahara plugins that require these AWS libraries in order to work.
 We don't want to have multiple copies of these libraries bundled into each plugin, firstly because they
 are quite large, but also because it can cause issues with library namespaces and php auto loading.
 
 Plugins that depend on this library are:
 
-https://git.catalyst-au.net/elearning/mahara-module_objectfs
+https://github.com/catalyst/mahara-module_objectfs
 
 ## Supported Mahara Versions
 
@@ -53,7 +53,7 @@ https://www.catalyst-au.net/
 
 Issues, and pull requests using github are welcome and encouraged!
 
-https://git.catalyst-au.net/elearning/mahara-module_objectfs/issues
+https://github.com/catalyst/mahara-module_objectfs/issues
 
 If you would like commercial support or would like to sponsor additional improvements
 to this plugin please contact us:

@@ -32,11 +32,10 @@ This plugin requires Mahara 17.04 and above
 
 ## Installation
 
-You can install this plugin from the plugin directory or get the latest version
-on Gitlab.
+You can get the latest version of this plugin from https://github.com/catalyst/mahara-module_aws.
 
 ```bash
-git clone git@git.catalyst-au.net:elearning/mahara-module_objectfs.git htdocs/module/aws
+git clone https://github.com/catalyst/mahara-module_aws.git htdocs/module/aws
 ```
 
 # Crafted by Catalyst IT
@@ -53,7 +52,7 @@ https://www.catalyst-au.net/
 
 Issues, and pull requests using github are welcome and encouraged!
 
-https://github.com/catalyst/mahara-module_objectfs/issues
+https://github.com/catalyst/mahara-module_aws/issues
 
 If you would like commercial support or would like to sponsor additional improvements
 to this plugin please contact us:

@@ -1,6 +1,8 @@
 <?php
 namespace Aws\S3;
 
+use Aws\Arn\ArnParser;
+use Aws\Arn\S3\AccessPointArn;
 use Aws\Exception\MultipartUploadException;
 use Aws\Result;
 use Aws\S3\Exception\S3Exception;
@@ -76,7 +78,7 @@ class ObjectCopier implements PromisorInterface
      */
     public function promise()
     {
-        return \GuzzleHttp\Promise\coroutine(function () {
+        return \GuzzleHttp\Promise\Coroutine::of(function () {
             $headObjectCommand = $this->client->getCommand(
                 'HeadObject',
                 $this->options['params'] + $this->source
@@ -139,8 +141,20 @@ class ObjectCopier implements PromisorInterface
 
     private function getSourcePath()
     {
-        $sourcePath = "/{$this->source['Bucket']}/"
-            . rawurlencode($this->source['Key']);
+        if (ArnParser::isArn($this->source['Bucket'])) {
+            try {
+                new AccessPointArn($this->source['Bucket']);
+            } catch (\Exception $e) {
+                throw new \InvalidArgumentException(
+                    'Provided ARN was a not a valid S3 access point ARN ('
+                        . $e->getMessage() . ')',
+                    0,
+                    $e
+                );
+            }
+        }
+        $sourcePath = "/{$this->source['Bucket']}/" . rawurlencode($this->source['Key']);
+
         if (isset($this->source['VersionId'])) {
             $sourcePath .= "?versionId={$this->source['VersionId']}";
         }

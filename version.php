@@ -12,6 +12,6 @@
 defined('INTERNAL') || die();
 
 $config = new stdClass();
-$config->version   = 2017030100;      // The current plugin version (Date: YYYYMMDDXX).
-$config->release   = '1.0.0';
+$config->version   = 2022031500;      // The current plugin version (Date: YYYYMMDDXX).
+$config->release   = '1.0.1';
 

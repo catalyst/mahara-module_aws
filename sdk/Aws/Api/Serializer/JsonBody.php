@@ -4,6 +4,7 @@ namespace Aws\Api\Serializer;
 use Aws\Api\Service;
 use Aws\Api\Shape;
 use Aws\Api\TimestampShape;
+use Aws\Exception\InvalidJsonException;
 
 /**
  * Formats the JSON body of a JSON-REST or JSON-RPC operation.
@@ -42,7 +43,6 @@ class JsonBody
     public function build(Shape $shape, array $args)
     {
         $result = json_encode($this->format($shape, $args));
-
         return $result == '[]' ? '{}' : $result;
     }
 
@@ -51,12 +51,18 @@ class JsonBody
         switch ($shape['type']) {
             case 'structure':
                 $data = [];
+                if (isset($shape['document']) && $shape['document']) {
+                    return $value;
+                }
                 foreach ($value as $k => $v) {
                     if ($v !== null && $shape->hasMember($k)) {
                         $valueShape = $shape->getMember($k);
                         $data[$valueShape['locationName'] ?: $k]
                             = $this->format($valueShape, $v);
                     }
+                }
+                if (empty($data)) {
+                    return new \stdClass;
                 }
                 return $data;
 
@@ -81,7 +87,10 @@ class JsonBody
                 return base64_encode($value);
 
             case 'timestamp':
-                return TimestampShape::format($value, 'unixTimestamp');
+                $timestampFormat = !empty($shape['timestampFormat'])
+                    ? $shape['timestampFormat']
+                    : 'unixTimestamp';
+                return TimestampShape::format($value, $timestampFormat);
 
             default:
                 return $value;

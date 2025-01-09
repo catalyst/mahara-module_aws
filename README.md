@@ -12,7 +12,7 @@ If you are writing a plugin that will use this SDK, it is recommended that you a
 
 ```php
 $plugin->dependencies = array(
-    'module_aws' => 2017030100
+    'module_aws' => 2022031500
 );
 ```
 
@@ -28,7 +28,10 @@ https://github.com/catalyst/mahara-module_objectfs
 
 ## Supported Mahara Versions
 
-This plugin requires Mahara 17.04 and above
+| Mahara version        | Branch            |
+|-----------------------|-------------------|
+| Mahara 24.04          | 24.04_STABLE      |
+| Mahara 17.04 - 23.04  | master            |
 
 ## Installation
 
